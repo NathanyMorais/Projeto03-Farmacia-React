@@ -11,11 +11,11 @@ function Navbar() {
 
     const { usuario, handleLogout } = useContext(AuthContext)
   
-    // function logout() {
-    //     handleLogout()
-    //     alert('Usuário deslogado com sucesso')
-    //     navigate('/login')
-    // }
+    function logout() {
+        handleLogout()
+        alert('Usuário deslogado com sucesso')
+        navigate('/login')
+    }
   
     let navbarComponent  //variavel usada no conteúdo sobre renderização condicional
     
@@ -30,12 +30,14 @@ function Navbar() {
             <div className='flex gap-4'>
             <Link to='/categoria' className='hover:underline'>Categorias</Link>
             <Link to='/cadastroCategoria' className='hover:underline'>Cadastrar categoria</Link>
-              <div className="flex justify-center ">
+            <Link to='' onClick={logout} className="flex justify-center ">
                 <img src={userImage} alt="" className='w-11 h-12' />
-              </div>
-              <div className="flex justify-center ">
+            </Link>
+
+            <div className="flex justify-center ">
                 <img src={cartImage} alt="" className='w-11 h-12' />
-              </div>
+            </div>
+            
             </div>
           </div>
         </div>

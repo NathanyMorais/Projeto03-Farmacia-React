@@ -5,7 +5,6 @@ import { atualizar, buscar, cadastrar } from '../../../services/Service';
 import Categoria from '../../../models/Categoria';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
-
 function FormularioCategoria() {
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
   
@@ -105,13 +104,24 @@ function FormularioCategoria() {
   
         <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
           <div className="flex flex-col gap-2">
-            <label htmlFor="name">Categoria</label>
+            <label htmlFor="name">Nome da categoria</label>
             <input
               type="text"
               placeholder="Nome"
               name='name'
               className="border-2 border-slate-700 rounded p-2"
               value={categoria.name}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="name">Descrição da categoria</label>
+            <input
+              type="text"
+              placeholder="Descrição"
+              name='description'
+              className="border-2 border-slate-700 rounded p-2"
+              value={categoria.description}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>

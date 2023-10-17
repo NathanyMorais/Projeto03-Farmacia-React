@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { buscar } from '../../../services/Service';
-import CardCategoria from '../cardCategoria/cardCategoria';
+import CardCategoria from '../cardCategoria/CardCategoria';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
 
@@ -18,7 +18,7 @@ function ListaCategoria() {
 
   async function buscarCategoria() {
     try {
-      await buscar('/categories', setCategoria, {
+      await buscar('/categories/all', setCategoria, {
         headers: { Authorization: token },
       });
     } catch (error: any) {

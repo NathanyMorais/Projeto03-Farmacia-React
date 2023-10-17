@@ -1,4 +1,5 @@
 import Categoria from "./Categoria";
+import Usuario from './Usuario';
 
 export default interface Produto {
     id: number;
@@ -9,5 +10,6 @@ export default interface Produto {
     photo: string;
     
     category: Categoria | null;
+    user: Usuario | null;
 
 }
