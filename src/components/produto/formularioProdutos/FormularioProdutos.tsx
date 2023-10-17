@@ -49,7 +49,7 @@ function FormularioProdutos() {
     });
   }
 
-  async function buscarCategoria() {
+  async function buscarCategorias() {
     await buscar('/categories/all', setCategorias, {
       headers: {
         Authorization: token,
@@ -60,12 +60,12 @@ function FormularioProdutos() {
   useEffect(() => {
     if (token === '') {
       toastAlerta('Você precisa estar logado', 'info');
-      navigate('/home');
+      navigate('/');
     }
   }, [token]);
 
   useEffect(() => {
-    buscarCategoria();
+    buscarCategorias();
     if (id !== undefined) {
       bucarProdutoporId(id);
       console.log(categoria);
@@ -76,7 +76,7 @@ function FormularioProdutos() {
   useEffect(() => {
     setProdutos({
       ...produto,
-      categoria: categoria,
+      category: categoria,
     });
   }, [categoria]);
 
@@ -84,8 +84,7 @@ function FormularioProdutos() {
     setProdutos({
       ...produto,
       [e.target.name]: e.target.value,
-      categoria: categoria,
-      usuario: usuario,
+      category: categoria,
     });
   }
 

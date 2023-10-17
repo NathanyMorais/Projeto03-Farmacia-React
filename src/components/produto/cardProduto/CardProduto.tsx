@@ -8,28 +8,25 @@ interface CardProdutoProps {
 
 function CardProduto({prod}: CardProdutoProps) {
   return (
-    <div className='border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
+    <div className=' border flex flex-col rounded-md overflow-hidden justify-between'>
       <div>
-        <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-          <img src={prod.photo} className='h-12 rounded-full' alt="" />
-          {/* <h3 className='text-lg font-bold text-center uppercase '>{prod.category}</h3> */}
+        <div className="flex bg-indigo-300 items-center gap-4">
+          <img src={prod.photo} className='rounded-e-sm' alt="" />
         </div>
         <div className='p-4 '>
           <h4 className='text-lg font-semibold uppercase'>{prod.name}</h4>
           <p>{prod.description}</p>
-          <p className="mb-3 font-bold text-lime-700 dark:text-lime-900">R$ {new Intl.NumberFormat('pt-BR', {
+          <p className="mb-3 font-bold text-black dark:text-black">R$ {new Intl.NumberFormat('pt-BR', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                         }).format(prod.price)}</p>
         </div>
       </div>
       <div className="flex">
-      <Link to={`/editarProduto/${prod.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-          <button>Editar</button>
+      <Link to={`/`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
+          <button>Comprar</button>
         </Link>
-        <Link to={`/deletarProduto/${prod.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-          <button>Deletar</button>
-        </Link>
+
       </div>
     </div>
   )
